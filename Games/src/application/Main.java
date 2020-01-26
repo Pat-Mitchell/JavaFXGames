@@ -41,25 +41,25 @@ public class Main extends Application {
 	 * 
 	 * Cheers!
 	 */
-	private static final int 		width = 800, //window width
-									height = 600, //window height
-									playerHeight = 100, //player paddle height
-									playerWidth = 15; //player paddle width
+	private static final int 	width = 800, //window width
+					height = 600, //window height
+					playerHeight = 100, //player paddle height
+					playerWidth = 15; //player paddle width
 	private static final double 	ballR = 15; //ball radius
-	private int 					scoreP1 = 0, //This should be maxed out
-									scoreP2 = 0, //This should be as low as possible
-									player1XPos = 0, //Left part of the window
-									powerSpeed = 5; //Powerup Speed increase
-	private double					ballYSpeed = 1,  //Up speed
-									ballXSpeed = 1, //right speed
-									player1YPos = height / 2, //Start in the middle of the window
-									player2YPos = height / 2, //Same as above
-									ballXPos = width / 2, //Start ball in the middle of the screen
-									ballYPos = width /2, //More start ball in the middle of the screen
-									player2XPos = width - playerWidth, //Right part of the screen - the width
-									maxSpeed = 10.0; //speedLimit
-	private boolean					gameStarted, //is game start. No.
-									mouseClicked; //Super Saiyan mode!
+	private int 			scoreP1 = 0, //This should be maxed out
+					scoreP2 = 0, //This should be as low as possible
+					player1XPos = 0, //Left part of the window
+					powerSpeed = 5; //Powerup Speed increase
+	private double			ballYSpeed = 1,  //Up speed
+					ballXSpeed = 1, //right speed
+					player1YPos = height / 2, //Start in the middle of the window
+					player2YPos = height / 2, //Same as above
+					ballXPos = width / 2, //Start ball in the middle of the screen
+					ballYPos = width /2, //More start ball in the middle of the screen
+					player2XPos = width - playerWidth, //Right part of the screen - the width
+					maxSpeed = 10.0; //speedLimit
+	private boolean			gameStarted, //is game start. No.
+					mouseClicked; //Super Saiyan mode!
 	//@formatter:on	
 
 	@Override
@@ -134,10 +134,10 @@ public class Main extends Application {
 		//Probs could make this faster since the check to see if the ball is hit is made every frame
 		//Bad practice too. Copy and pasted code for the power up thing
 		//Blame feature creep.
-		if		(( mouseClicked //If powered up and player hits
-				&& ballXPos < player1XPos + playerWidth) 
-				&& ballYPos >= player1YPos						
-				&& ballYPos <= player1YPos + playerHeight) {
+		if(( 		mouseClicked //If powered up and player hits
+		  		&& ballXPos < player1XPos + playerWidth) 
+		  		&& ballYPos >= player1YPos						
+		  		&& ballYPos <= player1YPos + playerHeight) {
 			ballXSpeed += (powerSpeed * Math.signum(ballXSpeed));
 			mouseClicked = false;
 			ballXSpeed *= -1;
@@ -145,11 +145,11 @@ public class Main extends Application {
 					4 * ((ballYPos - (player1YPos + playerHeight * .5)) / 50) : //where the paddle hits
 					4 * ((ballYPos - (player2YPos + playerHeight * .5)) / 50));
 		}
-		else if (((ballXPos + ballR > player2XPos) 				//is ball yeeted to computer
-				&& ballYPos >= player2YPos 						//and ball below comp head
-				&& ballYPos <= player2YPos + playerHeight)		//and ball above comp foot
-				|| ((ballXPos < player1XPos + playerWidth) 		//or ball yeeted to player
-				&& ballYPos >= player1YPos						//and ball below player head
+		else if 	(((ballXPos + ballR > player2XPos) 		//is ball yeeted to computer
+				&& ballYPos >= player2YPos 			//and ball below comp head
+				&& ballYPos <= player2YPos + playerHeight)	//and ball above comp foot
+				|| ((ballXPos < player1XPos + playerWidth) 	//or ball yeeted to player
+				&& ballYPos >= player1YPos			//and ball below player head
 				&& ballYPos <= player1YPos + playerHeight)) {	//and ball above player foot
 			ballXSpeed += (Math.abs(ballXSpeed) < maxSpeed) ? 1 * Math.signum(ballXSpeed) : 0 ; // Speed limit
 			if(ballXSpeed > 10) ballXSpeed = 10;
