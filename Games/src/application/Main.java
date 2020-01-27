@@ -32,12 +32,14 @@ public class Main extends Application {
 	 *  -Changed some formatting too for that visual beauty in the source code
 	 *  -Source code beauty attracts all the 10/10 plumber babes of the 1s and 0s
 	 * 
-	 * 01/27/2020 Added a max speed Added "powerup"
-	 *  -Player turns red on Click
-	 *  -Hitting the ball increases speed
-	 *  -ignores speed limit
+	 * 01/27/2020 
+	 *  -Added a max speed 
+	 *  -Added "powerup"
+	 *  -Player turns red on Mouse Click
+	 *  -Hitting the ball while red increases its X speed
 	 *  -Player returns to normal once the ball is hit 
-	 *  -Speed returns to normal too.
+	 *  -ignores speed limit
+	 *  -Comp hitting the ball lowers X speed down to limit if it was over
 	 * 
 	 * Cheers!
 	 */
